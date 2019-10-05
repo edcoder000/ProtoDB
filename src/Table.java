@@ -39,25 +39,25 @@ public class Table extends javax.swing.JFrame {
         jButtonResetSort = new javax.swing.JButton();
         jScrollPaneTable = new javax.swing.JScrollPane();
         mainTable = new javax.swing.JTable();
-        input1√ëolumn = new javax.swing.JTextField();
-        input2√ëolumn = new javax.swing.JTextField();
-        input3√ëolumn = new javax.swing.JTextField();
-        input5√ëolumn = new javax.swing.JTextField();
-        input4√ëolumn = new javax.swing.JTextField();
+        input1—olumn = new javax.swing.JTextField();
+        input2—olumn = new javax.swing.JTextField();
+        input3—olumn = new javax.swing.JTextField();
+        input5—olumn = new javax.swing.JTextField();
+        input4—olumn = new javax.swing.JTextField();
         jButtonAddLine = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SuperMegaGrooveTable");
 
-        jComboBoxColumnSelection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "–°—Ç–æ–ª–±–µ—Ü 1", "–°—Ç–æ–ª–±–µ—Ü 2", "–°—Ç–æ–ª–±–µ—Ü 3", "–°—Ç–æ–ª–±–µ—Ü 4", "–°—Ç–æ–ª–±–µ—Ü 5" }));
+        jComboBoxColumnSelection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "—ÚÓÎ·Âˆ 1", "—ÚÓÎ·Âˆ 2", "—ÚÓÎ·Âˆ 3", "—ÚÓÎ·Âˆ 4", "—ÚÓÎ·Âˆ 5" }));
         jComboBoxColumnSelection.setAutoscrolls(true);
 
         jComboBoxSortingMethod.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "<", ">", "=" }));
         jComboBoxSortingMethod.setToolTipText("");
 
-        jButtonRunSort.setText("–í—ã–ø–æ–ª–Ω–∏—Ç—å");
+        jButtonRunSort.setText("¬˚ÔÓÎÌËÚ¸");
 
-        jButtonResetSort.setText("–°–±—Ä–æ—Å");
+        jButtonResetSort.setText("—·ÓÒ");
         jButtonResetSort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonResetSortActionPerformed(evt);
@@ -78,23 +78,23 @@ public class Table extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "–°—Ç–æ–ª–±–µ—Ü 1", "–°—Ç–æ–ª–±–µ—Ü 2", "–°—Ç–æ–ª–±–µ—Ü 3", "–°—Ç–æ–ª–±–µ—Ü 4", "–°—Ç–æ–ª–±–µ—Ü 5"
+                "—ÚÓÎ·Âˆ 1", "—ÚÓÎ·Âˆ 2", "—ÚÓÎ·Âˆ 3", "—ÚÓÎ·Âˆ 4", "—ÚÓÎ·Âˆ 5"
             }
         ));
         mainTable.setCellSelectionEnabled(true);
         jScrollPaneTable.setViewportView(mainTable);
 
-        input1√ëolumn.setMinimumSize(new java.awt.Dimension(6, 25));
+        input1—olumn.setMinimumSize(new java.awt.Dimension(6, 25));
 
-        input2√ëolumn.setMinimumSize(new java.awt.Dimension(6, 25));
+        input2—olumn.setMinimumSize(new java.awt.Dimension(6, 25));
 
-        input3√ëolumn.setMinimumSize(new java.awt.Dimension(6, 25));
+        input3—olumn.setMinimumSize(new java.awt.Dimension(6, 25));
 
-        input5√ëolumn.setMinimumSize(new java.awt.Dimension(6, 25));
+        input5—olumn.setMinimumSize(new java.awt.Dimension(6, 25));
 
-        input4√ëolumn.setMinimumSize(new java.awt.Dimension(6, 25));
+        input4—olumn.setMinimumSize(new java.awt.Dimension(6, 25));
 
-        jButtonAddLine.setText("–î–æ–±–∞–≤–∏—Ç—å");
+        jButtonAddLine.setText("ƒÓ·‡‚ËÚ¸");
         jButtonAddLine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddLineActionPerformed(evt);
@@ -112,15 +112,15 @@ public class Table extends javax.swing.JFrame {
                         .addComponent(jScrollPaneTable)
                         .addContainerGap())
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(input1√ëolumn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(input1—olumn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(input2√ëolumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(input2—olumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(input3√ëolumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(input3—olumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(input4√ëolumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(input4—olumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(input5√ëolumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(input5—olumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonAddLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
@@ -150,11 +150,11 @@ public class Table extends javax.swing.JFrame {
                 .addComponent(jScrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(input3√ëolumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input5√ëolumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input4√ëolumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input1√ëolumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input2√ëolumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input3—olumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input5—olumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input4—olumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input1—olumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input2—olumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAddLine))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -183,42 +183,42 @@ public class Table extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)mainTable.getModel();
         
         try{
-            int a = Integer.parseInt(input1√ëolumn.getText());
-            input1√ëolumn.setBorder(new LineBorder(Color.GRAY, 1));
+            int a = Integer.parseInt(input1—olumn.getText());
+            input1—olumn.setBorder(new LineBorder(Color.GRAY, 1));
         }catch(NumberFormatException e){
-            input1√ëolumn.setBorder(new LineBorder(Color.RED, 2));
+            input1—olumn.setBorder(new LineBorder(Color.RED, 2));
         }
         
         try{
-            int a = Integer.parseInt(input2√ëolumn.getText());
-            input2√ëolumn.setBorder(new LineBorder(Color.GRAY, 1));
+            int a = Integer.parseInt(input2—olumn.getText());
+            input2—olumn.setBorder(new LineBorder(Color.GRAY, 1));
         }catch(NumberFormatException e){
-            input2√ëolumn.setBorder(new LineBorder(Color.RED, 2));
+            input2—olumn.setBorder(new LineBorder(Color.RED, 2));
         }
         
         try{
-            int a = Integer.parseInt(input3√ëolumn.getText());
-            input3√ëolumn.setBorder(new LineBorder(Color.GRAY, 1));
+            int a = Integer.parseInt(input3—olumn.getText());
+            input3—olumn.setBorder(new LineBorder(Color.GRAY, 1));
         }catch(NumberFormatException e){
-            input3√ëolumn.setBorder(new LineBorder(Color.RED, 2));
+            input3—olumn.setBorder(new LineBorder(Color.RED, 2));
         }
         
         try{
-            int a = Integer.parseInt(input4√ëolumn.getText());
-            input4√ëolumn.setBorder(new LineBorder(Color.GRAY, 1));
+            int a = Integer.parseInt(input4—olumn.getText());
+            input4—olumn.setBorder(new LineBorder(Color.GRAY, 1));
         }catch(NumberFormatException e){
-            input4√ëolumn.setBorder(new LineBorder(Color.RED, 2));
+            input4—olumn.setBorder(new LineBorder(Color.RED, 2));
         }
         
         try{
-            int a = Integer.parseInt(input5√ëolumn.getText());
-            input5√ëolumn.setBorder(new LineBorder(Color.GRAY, 1));
+            int a = Integer.parseInt(input5—olumn.getText());
+            input5—olumn.setBorder(new LineBorder(Color.GRAY, 1));
         }catch(NumberFormatException e){
-            input5√ëolumn.setBorder(new LineBorder(Color.RED, 2));
+            input5—olumn.setBorder(new LineBorder(Color.RED, 2));
         }
         
-        model.addRow(new Object[]{Integer.parseInt(input1√ëolumn.getText()), Integer.parseInt(input2√ëolumn.getText()),
-        Integer.parseInt(input3√ëolumn.getText()), Integer.parseInt(input4√ëolumn.getText()), Integer.parseInt(input5√ëolumn.getText())});
+        model.addRow(new Object[]{Integer.parseInt(input1—olumn.getText()), Integer.parseInt(input2—olumn.getText()),
+        Integer.parseInt(input3—olumn.getText()), Integer.parseInt(input4—olumn.getText()), Integer.parseInt(input5—olumn.getText())});
     }//GEN-LAST:event_jButtonAddLineActionPerformed
 
     /**
@@ -257,11 +257,11 @@ public class Table extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField input1√ëolumn;
-    private javax.swing.JTextField input2√ëolumn;
-    private javax.swing.JTextField input3√ëolumn;
-    private javax.swing.JTextField input4√ëolumn;
-    private javax.swing.JTextField input5√ëolumn;
+    private javax.swing.JTextField input1—olumn;
+    private javax.swing.JTextField input2—olumn;
+    private javax.swing.JTextField input3—olumn;
+    private javax.swing.JTextField input4—olumn;
+    private javax.swing.JTextField input5—olumn;
     private javax.swing.JButton jButtonAddLine;
     private javax.swing.JButton jButtonResetSort;
     private javax.swing.JButton jButtonRunSort;
