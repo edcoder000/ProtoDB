@@ -3,6 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -15,6 +24,7 @@ public class Table extends javax.swing.JFrame {
      */
     public Table() {
         initComponents();
+        populateTable();
     }
 
     /**
@@ -33,13 +43,18 @@ public class Table extends javax.swing.JFrame {
         jButtonRunSort = new javax.swing.JButton();
         jButtonResetSort = new javax.swing.JButton();
         jScrollPaneTable = new javax.swing.JScrollPane();
-        mainTable = new javax.swing.JTable();
         input1Сolumn = new javax.swing.JTextField();
         input2Сolumn = new javax.swing.JTextField();
         input3Сolumn = new javax.swing.JTextField();
         input5Сolumn = new javax.swing.JTextField();
         input4Сolumn = new javax.swing.JTextField();
         jButtonAddLine = new javax.swing.JButton();
+        mainTable = new javax.swing.JTable(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SuperMegaGrooveTable");
@@ -58,25 +73,22 @@ public class Table extends javax.swing.JFrame {
                 jButtonResetSortActionPerformed(evt);
             }
         });
+        jButtonAddLine.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                addLine();
+            }
+        });
 
         mainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
             },
             new String [] {
                 "Столбец 1", "Столбец 2", "Столбец 3", "Столбец 4", "Столбец 5"
             }
         ));
         mainTable.setCellSelectionEnabled(true);
+
         jScrollPaneTable.setViewportView(mainTable);
 
         input1Сolumn.setMinimumSize(new java.awt.Dimension(6, 25));
@@ -165,10 +177,61 @@ public class Table extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonResetSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetSortActionPerformed
+    private void jButtonResetSortActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonResetSortActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonResetSortActionPerformed
+    private void addLine(){
+        Integer[] l = new Integer[5];
+        int index = 0;
+        boolean valid = true;
+        for (JTextField input: getNewLineInputs()) {
+            try{
+                l[index] = Integer.parseInt(input.getText());
+                input.setBorder(getDefaultBorder());
+            } catch (NumberFormatException e){
+                valid = false;
+                input.setBorder(getErrorBorder());
+            }
+            index++;
+        }
+        if(valid){
+            addRow(l);
+            for(JTextField input: getNewLineInputs()){
+                input.setText("");
+            }
+        }
+    }
+    void populateTable(){
+        Random random = new Random();
+        for(int i = 0; i < 5; i++){
+            Integer[] arr = new Integer[5];
+            for(int j = 0; j<5; j++){
+                arr[j] = random.nextInt(50);
+            }
+            addRow(arr);
+        }
+    }
+    Border getErrorBorder(){
+        return new LineBorder(Color.RED, 2);
+    }
+    Border getDefaultBorder(){
+        return new JTextField().getBorder();
+    }
+    void addRow(Integer[] array){
+        DefaultTableModel model = (DefaultTableModel) mainTable.getModel();
+        model.addRow(array);
+    }
 
+
+    JTextField[] getNewLineInputs(){
+        return new JTextField[]{
+                input1Сolumn,
+                input2Сolumn,
+                input3Сolumn,
+                input4Сolumn,
+                input5Сolumn
+        };
+    }
     /**
      * @param args the command line arguments
      */
