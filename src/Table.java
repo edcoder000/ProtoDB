@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Random;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -43,18 +45,13 @@ public class Table extends javax.swing.JFrame {
         jButtonRunSort = new javax.swing.JButton();
         jButtonResetSort = new javax.swing.JButton();
         jScrollPaneTable = new javax.swing.JScrollPane();
+        mainTable = new javax.swing.JTable();
         input1Сolumn = new javax.swing.JTextField();
         input2Сolumn = new javax.swing.JTextField();
         input3Сolumn = new javax.swing.JTextField();
         input5Сolumn = new javax.swing.JTextField();
         input4Сolumn = new javax.swing.JTextField();
         jButtonAddLine = new javax.swing.JButton();
-        mainTable = new javax.swing.JTable(){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SuperMegaGrooveTable");
@@ -66,6 +63,11 @@ public class Table extends javax.swing.JFrame {
         jComboBoxSortingMethod.setToolTipText("");
 
         jButtonRunSort.setText("Выполнить");
+        jButtonRunSort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRunSortActionPerformed(evt);
+            }
+        });
 
         jButtonResetSort.setText("Сброс");
         jButtonResetSort.addActionListener(new java.awt.event.ActionListener() {
@@ -73,22 +75,25 @@ public class Table extends javax.swing.JFrame {
                 jButtonResetSortActionPerformed(evt);
             }
         });
-        jButtonAddLine.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                addLine();
-            }
-        });
 
         mainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
                 "Столбец 1", "Столбец 2", "Столбец 3", "Столбец 4", "Столбец 5"
             }
         ));
         mainTable.setCellSelectionEnabled(true);
-
         jScrollPaneTable.setViewportView(mainTable);
 
         input1Сolumn.setMinimumSize(new java.awt.Dimension(6, 25));
@@ -178,8 +183,43 @@ public class Table extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonResetSortActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonResetSortActionPerformed
-        // TODO add your handling code here:
+        
+        jComboBoxColumnSelection.setSelectedIndex(0);
+        jComboBoxSortingMethod.setSelectedIndex(0);
+        jTextFieldValueInput.setText("");
+        
+        mainTable.setRowSorter(null);
+        
     }//GEN-LAST:event_jButtonResetSortActionPerformed
+
+    private void jButtonRunSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunSortActionPerformed
+       
+        Integer column = jComboBoxColumnSelection.getSelectedIndex() - 1;
+        Integer sortMethod = jComboBoxSortingMethod.getSelectedIndex();
+        Integer filterValue = Integer.parseInt(jTextFieldValueInput.getText());
+        
+        RowFilter<Object, Object> filter = new RowFilter<Object, Object>() {
+            public boolean include(Entry entry) {
+                Integer value = (Integer) entry.getValue(column);
+                
+                if (value == null) return false;
+                
+                switch(sortMethod)
+                {
+                    case 1: return value.intValue() < filterValue;
+                    case 2: return value.intValue() > filterValue;
+                    case 3: return value.intValue() == filterValue;
+                }
+                
+                return false;
+            }
+        };
+        
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(mainTable.getModel());
+        sorter.setRowFilter(filter);
+        mainTable.setRowSorter(sorter);
+        
+    }//GEN-LAST:event_jButtonRunSortActionPerformed
     private void addLine(){
         Integer[] l = new Integer[5];
         int index = 0;
