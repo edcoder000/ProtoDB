@@ -45,7 +45,12 @@ public class Table extends javax.swing.JFrame {
         jButtonRunSort = new javax.swing.JButton();
         jButtonResetSort = new javax.swing.JButton();
         jScrollPaneTable = new javax.swing.JScrollPane();
-        mainTable = new javax.swing.JTable();
+        mainTable = new javax.swing.JTable(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         input1Сolumn = new javax.swing.JTextField();
         input2Сolumn = new javax.swing.JTextField();
         input3Сolumn = new javax.swing.JTextField();
@@ -78,16 +83,6 @@ public class Table extends javax.swing.JFrame {
 
         mainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
             },
             new String [] {
                 "Столбец 1", "Столбец 2", "Столбец 3", "Столбец 4", "Столбец 5"
@@ -196,7 +191,16 @@ public class Table extends javax.swing.JFrame {
        
         Integer column = jComboBoxColumnSelection.getSelectedIndex() - 1;
         Integer sortMethod = jComboBoxSortingMethod.getSelectedIndex();
-        Integer filterValue = Integer.parseInt(jTextFieldValueInput.getText());
+        Integer filterValue;
+        try{
+            filterValue = Integer.parseInt(jTextFieldValueInput.getText());
+            jTextFieldValueInput.setBorder(getDefaultBorder());
+        }
+        catch (NumberFormatException e){
+            jTextFieldValueInput.setBorder(getErrorBorder());
+            return;
+        }
+
         
         RowFilter<Object, Object> filter = new RowFilter<Object, Object>() {
             public boolean include(Entry entry) {
