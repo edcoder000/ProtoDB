@@ -39,70 +39,36 @@ public class Table extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainPanel = new JPanel();
-        jComboBoxColumnSelection = new JComboBox();
-        jComboBoxFilterMethod = new JComboBox();
-        jTextFieldValueInput = new JTextField();
-        jButtonRunFilter = new JButton();
-        jButtonResetFilter = new JButton();
-        jScrollPaneTable = new JScrollPane();
-        mainTable = new JTable(){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-        input1Column = new JTextField();
-        input2Column = new JTextField();
-        input3Column = new JTextField();
-        input5Column = new JTextField();
-        input4Column = new JTextField();
-        jButtonAddLine = new JButton();
+        mainPanel = new javax.swing.JPanel();
+        jComboBoxColumnSelection = new javax.swing.JComboBox();
+        jTextFieldValueInput = new javax.swing.JTextField();
+        jButtonRunSort = new javax.swing.JButton();
+        jButtonResetSort = new javax.swing.JButton();
+        jScrollPaneTable = new javax.swing.JScrollPane();
+        mainTable = new javax.swing.JTable();
+        input1Сolumn = new javax.swing.JTextField();
+        input2Сolumn = new javax.swing.JTextField();
+        input3Сolumn = new javax.swing.JTextField();
+        input5Сolumn = new javax.swing.JTextField();
+        input4Сolumn = new javax.swing.JTextField();
+        jButtonAddLine = new javax.swing.JButton();
+        jButtonDelite = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SuperMegaGrooveTable");
-        jTextFieldValueInput.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent documentEvent) {
-                RunFilter();
-            }
-            @Override
-            public void removeUpdate(DocumentEvent documentEvent) {
-                RunFilter();
-            }
-            @Override
-            public void changedUpdate(DocumentEvent documentEvent) {
-                RunFilter();
-            }
-        });
-        jComboBoxFilterMethod.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                RunFilter();
-            }
-        });
-        jComboBoxColumnSelection.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                RunFilter();
-            }
-        });
 
         jComboBoxColumnSelection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "Столбец 1", "Столбец 2", "Столбец 3", "Столбец 4", "Столбец 5" }));
         jComboBoxColumnSelection.setAutoscrolls(true);
 
-        jComboBoxFilterMethod.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "<", ">", "=" }));
-        jComboBoxFilterMethod.setToolTipText("");
-
-        jButtonRunFilter.setText("Выполнить");
-        jButtonRunFilter.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRunSort.setText("Выполнить");
+        jButtonRunSort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RunFilter();
+                jButtonRunSortActionPerformed(evt);
             }
         });
 
-        jButtonResetFilter.setText("Сброс");
-        jButtonResetFilter.addActionListener(new java.awt.event.ActionListener() {
+        jButtonResetSort.setText("Сброс");
+        jButtonResetSort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonResetSortActionPerformed(evt);
             }
@@ -110,6 +76,16 @@ public class Table extends JFrame {
 
         mainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
                 "Столбец 1", "Столбец 2", "Столбец 3", "Столбец 4", "Столбец 5"
@@ -118,17 +94,24 @@ public class Table extends JFrame {
         mainTable.setCellSelectionEnabled(true);
         jScrollPaneTable.setViewportView(mainTable);
 
-        input1Column.setMinimumSize(new java.awt.Dimension(6, 25));
+        input1Сolumn.setMinimumSize(new java.awt.Dimension(6, 25));
 
-        input2Column.setMinimumSize(new java.awt.Dimension(6, 25));
+        input2Сolumn.setMinimumSize(new java.awt.Dimension(6, 25));
 
-        input3Column.setMinimumSize(new java.awt.Dimension(6, 25));
+        input3Сolumn.setMinimumSize(new java.awt.Dimension(6, 25));
 
-        input5Column.setMinimumSize(new java.awt.Dimension(6, 25));
+        input5Сolumn.setMinimumSize(new java.awt.Dimension(6, 25));
 
-        input4Column.setMinimumSize(new java.awt.Dimension(6, 25));
+        input4Сolumn.setMinimumSize(new java.awt.Dimension(6, 25));
 
         jButtonAddLine.setText("Добавить");
+
+        jButtonDelite.setLabel("Удалить");
+        jButtonDelite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeliteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -137,33 +120,30 @@ public class Table extends JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneTable)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPaneTable)
-                        .addContainerGap())
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(input1Column, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(input1Сolumn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(input2Column, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(input2Сolumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(input3Column, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(input3Сolumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(input4Column, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(input4Сolumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(input5Column, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(input5Сolumn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonAddLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addComponent(jButtonAddLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addComponent(jComboBoxColumnSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBoxFilterMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(jTextFieldValueInput, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonRunFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addComponent(jButtonResetFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))))
+                        .addComponent(jButtonRunSort, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonResetSort, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonDelite, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,19 +151,19 @@ public class Table extends JFrame {
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxColumnSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxFilterMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldValueInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonRunFilter)
-                    .addComponent(jButtonResetFilter))
+                    .addComponent(jButtonRunSort)
+                    .addComponent(jButtonResetSort)
+                    .addComponent(jButtonDelite))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(input3Column, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input5Column, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input4Column, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input1Column, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input2Column, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input3Сolumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input5Сolumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input4Сolumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input1Сolumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input2Сolumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAddLine))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -254,6 +234,10 @@ public class Table extends JFrame {
         mainTable.setRowSorter(sorter);
         
     }//GEN-LAST:event_jButtonRunSortActionPerformed
+
+    private void jButtonDeliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeliteActionPerformed
+     //новое тут
+    }//GEN-LAST:event_jButtonDeliteActionPerformed
     private void addLine(){
         Integer[] l = new Integer[5];
         int index = 0;
@@ -342,19 +326,19 @@ public class Table extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private JTextField input1Column;
-    private JTextField input2Column;
-    private JTextField input3Column;
-    private JTextField input4Column;
-    private JTextField input5Column;
-    private JButton jButtonAddLine;
-    private JButton jButtonResetFilter;
-    private JButton jButtonRunFilter;
-    private JComboBox jComboBoxColumnSelection;
-    private JComboBox jComboBoxFilterMethod;
-    private JScrollPane jScrollPaneTable;
-    private JTextField jTextFieldValueInput;
-    private JPanel mainPanel;
-    private JTable mainTable;
+    private javax.swing.JTextField input1Сolumn;
+    private javax.swing.JTextField input2Сolumn;
+    private javax.swing.JTextField input3Сolumn;
+    private javax.swing.JTextField input4Сolumn;
+    private javax.swing.JTextField input5Сolumn;
+    private javax.swing.JButton jButtonAddLine;
+    private javax.swing.JButton jButtonDelite;
+    private javax.swing.JButton jButtonResetSort;
+    private javax.swing.JButton jButtonRunSort;
+    private javax.swing.JComboBox jComboBoxColumnSelection;
+    private javax.swing.JScrollPane jScrollPaneTable;
+    private javax.swing.JTextField jTextFieldValueInput;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JTable mainTable;
     // End of variables declaration//GEN-END:variables
 }

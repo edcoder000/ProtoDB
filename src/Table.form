@@ -42,10 +42,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jScrollPaneTable" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jScrollPaneTable" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="input1Сolumn" min="-2" pref="69" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -58,21 +55,20 @@
                           <Component id="input5Сolumn" min="-2" pref="70" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButtonAddLine" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jComboBoxColumnSelection" min="-2" pref="115" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jComboBoxSortingMethod" min="-2" pref="68" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jTextFieldValueInput" min="-2" pref="53" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButtonRunSort" min="-2" pref="112" max="-2" attributes="0"/>
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButtonResetSort" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jButtonDelite" min="-2" pref="77" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,10 +78,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jComboBoxColumnSelection" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBoxSortingMethod" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldValueInput" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonRunSort" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonResetSort" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonDelite" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPaneTable" min="-2" pref="168" max="-2" attributes="0"/>
@@ -117,19 +113,6 @@
               </StringArray>
             </Property>
             <Property name="autoscrolls" type="boolean" value="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxSortingMethod">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="---"/>
-                <StringItem index="1" value="&lt;"/>
-                <StringItem index="2" value="&gt;"/>
-                <StringItem index="3" value="="/>
-              </StringArray>
-            </Property>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldValueInput">
@@ -217,6 +200,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="&#x414;&#x43e;&#x431;&#x430;&#x432;&#x438;&#x442;&#x44c;"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonDelite">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="&#x423;&#x434;&#x430;&#x43b;&#x438;&#x442;&#x44c;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeliteActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
