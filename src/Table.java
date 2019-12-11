@@ -2,6 +2,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.BiFunction;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -169,6 +172,19 @@ public class Table extends JFrame {
         RowFilter<Object, Object> filter = new RowFilter<Object, Object>() {
             public boolean include(Entry entry) {
                 var value = (String) entry.getValue(column);
+                List<FilterPair> filters = new ArrayList<>(){};
+                filters.add(new FilterPair(">", (x,y)-> x>y));
+                filters.add(new FilterPair("=", (x,y) -> x==y));
+                filters.add(new FilterPair("<", (x, y)-> x<y));
+                for (var filter : filters) {
+                    if (filterValue.startsWith(filter.StartValue)){
+                        try {
+                            var i = Integer.parseInt(value);
+                            var f = Integer.parseInt(filterValue.substring(1));
+                            return filter.FilterFunc.apply(i,f);
+                        } catch (NumberFormatException e){ return false;}
+                    }
+                }
                 return value.contains(filterValue);
             }
         };
@@ -232,6 +248,14 @@ public class Table extends JFrame {
                 new Table().setVisible(true);
             }
         });
+    }
+    class FilterPair{
+        public final String StartValue;
+        public final BiFunction<Integer, Integer, Boolean> FilterFunc;
+        FilterPair(String startValue, BiFunction<Integer, Integer, Boolean> filterFunc) {
+            StartValue = startValue;
+            FilterFunc = filterFunc;
+        }
     }
     private javax.swing.JTextField input1Сolumn;
     private javax.swing.JTextField input2Сolumn;
