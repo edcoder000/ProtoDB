@@ -58,8 +58,8 @@ public class Table extends JFrame {
         });
         mainTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
-                        {"dsf", "aasdf", "Asdf", "asdfasdf", "asdfas"},
-                        {"wefvs", "asdf", "ergsdfg", "dsfg", "dsfgsdf"},
+                        {"12", "4", "Asdf", "asdfasdf", "asdfas"},
+                        {"1", "43", "ergsdfg", "dsfg", "dsfgsdf"},
                 },
                 new String[]{
                         "Столбец 1", "Столбец 2", "Столбец 3", "Столбец 4", "Столбец 5"
@@ -207,13 +207,11 @@ public class Table extends JFrame {
         var index = 0;
         for (JTextField input : getNewLineInputs()) {
             data[index] = input.getText();
+            input.setText("");
             index++;
         }
         var model = (DefaultTableModel) mainTable.getModel();
         model.addRow(data);
-        for (JTextField input : getNewLineInputs()) {
-            input.setText("");
-        }
     }
 
     JTextField[] getNewLineInputs() {
